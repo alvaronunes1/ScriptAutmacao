@@ -24,6 +24,7 @@ public class TesteAutomacaoUpload {
         // LINK DO SITE PARA SER ACESSADO
         navegador.get("https://colab.research.google.com/drive/1T0U4IwuVNG9O_oHnH09N83-joTm_o7QE?usp=sharing");
 
+        // AQUI VOCE COLOCA O EMAIL DO COLAB À SER INSERIDO
         navegador.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("");
         navegador.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/span")).click();
 
@@ -33,11 +34,18 @@ public class TesteAutomacaoUpload {
             e.printStackTrace();
         }
 
+
+        // AQUI VOCE COLOCA A SENHA DO EMAIL DO COLAB
         navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
         navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("");
         navegador.findElement(By.xpath("//*[@id=\"passwordNext\"]/div/button/span")).click();
 
+
+
+        //AQUI EU ESTOU TRAVANDO AS LINHAS DE COMANDO PARA DAR TEMPO SUFICIENTE DO EMAIL SER CONECTADO
         WebDriverWait wait = new WebDriverWait(navegador, Duration.ofSeconds(20,1000));
+
+
         WebElement elemento = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[7]/div[2]/colab-left-pane/div/div[1]/div[5]/mwc-icon-button-toggle/md-icon[1]")));
         elemento.click();
         WebElement elemento2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[7]/div[2]/colab-left-pane/colab-resizer/div[1]/div[2]/colab-file-browser/colab-file-tree/div[2]/div/span")));
