@@ -24,7 +24,7 @@ public class TesteAutomacaoUpload {
         // LINK DO SITE PARA SER ACESSADO
         navegador.get("https://colab.research.google.com/drive/1T0U4IwuVNG9O_oHnH09N83-joTm_o7QE?usp=sharing");
 
-        navegador.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("alvaro.nunes@mcsarc.com.br");
+        navegador.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("");
         navegador.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/span")).click();
 
         try {
@@ -34,7 +34,7 @@ public class TesteAutomacaoUpload {
         }
 
         navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
-        navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("Vizinpvd1$");
+        navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("");
         navegador.findElement(By.xpath("//*[@id=\"passwordNext\"]/div/button/span")).click();
 
         WebDriverWait wait = new WebDriverWait(navegador, Duration.ofSeconds(20,1000));

@@ -25,8 +25,8 @@ public class TesteAutomacao {
         //============================//======================================//
 
         // LOGIN E SENHA DO ACESSO - INFELIZMENTE VAI SEMPRE PEDIR A CHAVE DE ACESSO.
-        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:username\"]")).sendKeys("ancmcsa");
-        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:password\"]")).sendKeys("Mcsa@2023");
+        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:username\"]")).sendKeys("");
+        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:password\"]")).sendKeys("");
         navegador.findElement(By.xpath("//*[@id=\"login-form-novo:btn-login\"]")).click();
 
         //TEMPO LIMITE PARA VOCÊ PODER PEGAR O CODIGO NO EMAIL E INSERIR
@@ -57,6 +57,7 @@ public class TesteAutomacao {
             WebElement meuElemento = navegador.findElement(By.xpath("//*[@id=\"list-tarefas:tabela:btn-planilha\"]"));
             meuElemento.click();
         }
+
 
         navegador.findElement(By.xpath("//*[@id=\"j_idt624:form-export-excel:ff-modelo\"]/div/div[1]/div/button")).click();
 
