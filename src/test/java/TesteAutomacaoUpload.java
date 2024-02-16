@@ -25,7 +25,7 @@ public class TesteAutomacaoUpload {
         navegador.get("https://colab.research.google.com/drive/1T0U4IwuVNG9O_oHnH09N83-joTm_o7QE?usp=sharing");
 
         // AQUI VOCE COLOCA O EMAIL DO COLAB À SER INSERIDO
-        navegador.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("");
+            navegador.findElement(By.xpath("//*[@id=\"identifierId\"]")).sendKeys("alvaro.nunes@mcsarc.com.br");
         navegador.findElement(By.xpath("//*[@id=\"identifierNext\"]/div/button/span")).click();
 
         try {
@@ -37,7 +37,7 @@ public class TesteAutomacaoUpload {
 
         // AQUI VOCE COLOCA A SENHA DO EMAIL DO COLAB
         navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).click();
-        navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("");
+        navegador.findElement(By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input")).sendKeys("Vizinpvd1$");
         navegador.findElement(By.xpath("//*[@id=\"passwordNext\"]/div/button/span")).click();
 
 
@@ -58,7 +58,9 @@ public class TesteAutomacaoUpload {
         try {
             Robot robot = new Robot();
             Thread.sleep(2000);
-            StringSelection stringSelection = new StringSelection("C:\\Users\\npc\\Downloads\\Registros Hitoricos.xlsx");
+
+            //AQUI COLOCA O DIRETORIO DE ONDE ESTA O ARQUIVO XLSX
+            StringSelection stringSelection = new StringSelection("EXEMPLO -----> C:\\Users\\npc\\Downloads\\Registros Hitoricos.xlsx <---- EXEMPLO");
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
             robot.keyPress(KeyEvent.VK_CONTROL);
@@ -82,10 +84,9 @@ public class TesteAutomacaoUpload {
             WebElement elemento5 = wait5.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/mwc-dialog/mwc-button[2]")));
             elemento5.click();
 
-            Thread.sleep(15000);
+            Thread.sleep(20000);
 
             WebElement iconElement2 = navegador.findElement(By.cssSelector("body > div.notebook-vertical.colab-left-pane-open > div.notebook-horizontal > colab-left-pane > colab-resizer > div.resizer-contents > div.left-pane-container > colab-file-browser > colab-file-tree > div.file-tree-buttons > paper-icon-button:nth-child(2)"));
-            JavascriptExecutor js2 = (JavascriptExecutor) navegador;
             js.executeScript("arguments[0].click();", iconElement2);
 
             Thread.sleep(2000);

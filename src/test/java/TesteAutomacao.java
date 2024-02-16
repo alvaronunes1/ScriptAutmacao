@@ -25,8 +25,8 @@ public class TesteAutomacao {
         //============================//======================================//
 
         // LOGIN E SENHA DO ACESSO - INFELIZMENTE VAI SEMPRE PEDIR A CHAVE DE ACESSO.
-        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:username\"]")).sendKeys("");
-        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:password\"]")).sendKeys("");
+        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:username\"]")).sendKeys("COLOQUE SEU USUARIO AQUI");
+        navegador.findElement(By.xpath("//*[@id=\"login-form-novo:password\"]")).sendKeys("COLOQUE SUA SENHA AQUI");
         navegador.findElement(By.xpath("//*[@id=\"login-form-novo:btn-login\"]")).click();
 
         //TEMPO LIMITE PARA VOCÊ PODER PEGAR O CODIGO NO EMAIL E INSERIR
@@ -40,7 +40,7 @@ public class TesteAutomacao {
 
         //SELECIONA A DATA DE QUANDO PEGAR ATÉ A DATA DE HOJE
         navegador.findElement(By.xpath("//*[@id=\"form-pesquisa-tarefa:data-desde_input\"]")).click();
-        navegador.findElement(By.xpath("//*[@id=\"form-pesquisa-tarefa:data-desde_input\"]")).sendKeys("13/02/2023");
+        navegador.findElement(By.xpath("//*[@id=\"form-pesquisa-tarefa:data-desde_input\"]")).sendKeys("SELECIONE A DATA DE QUANDO - ##/##-##");
         navegador.findElement(By.xpath("//*[@id=\"ui-datepicker-div\"]/div[2]/button[2]")).click();
         //=========================================//==========================================//=======================//
 
@@ -58,13 +58,17 @@ public class TesteAutomacao {
             meuElemento.click();
         }
 
+        //---------------------------------------//-----------------------------------------------//-------------------------------//
 
+        //AQUI SELECIONA A CAIXA MODELOS CADASTRADOS E DIGITA DE QUEM VOCE PRECISA PEGAR
         navegador.findElement(By.xpath("//*[@id=\"j_idt624:form-export-excel:ff-modelo\"]/div/div[1]/div/button")).click();
-
         navegador.findElement(By.xpath("//*[@id=\"j_idt624:form-export-excel:ff-modelo\"]/div/div[1]/div/div/div[1]/input")).click();
         navegador.findElement(By.xpath("//*[@id=\"j_idt624:form-export-excel:ff-modelo\"]/div/div[1]/div/div/div[1]/input")).sendKeys("Rodrigo");
         navegador.findElement(By.linkText("Registros Hitóricos (Público: Sim - Usuário: Rodrigo Brozinga Nunes - Limitação Perfil: Sim)")).click();
 
+        //---------------------------------------//---------------------------------------------//------------------------------------------------//
+
+        //AQUI É UM TEMPO PARA AGUARDAR A PESQUISA TERMINAR NA CAIXA DE MODELOS CADASTRADOS
         try {
             Thread.sleep(4000);  // 5000 milissegundos = 5 segundos
         } catch (InterruptedException e) {
@@ -72,6 +76,7 @@ public class TesteAutomacao {
         }
 
 
+        //AQUI EXPORTA A PLANILHA
         navegador.findElement(By.xpath("//*[@id=\"j_idt624:form-btn-exportar:btn-exportar-planilha\"]")).click();
 
     }
